@@ -9,11 +9,18 @@ const handleSubmit = function(ev) {
 
   const users = document.querySelector('#users')
 
-  const p = document.createElement('p')
-  p.textContent = `${userName}, ${age}`
-  p.style.backgroundColor = favoriteColor
+  const list = document.createElement('ul')
 
-  users.appendChild(p)
+  const nameItem = document.createElement('li')
+  nameItem.textContent = `Name: ${userName}`
+
+  const ageItem = document.createElement('li')
+  ageItem.textContent = `Age: ${age}`
+
+  list.appendChild(nameItem)
+  list.appendChild(ageItem)
+
+  users.appendChild(list)
 
   form.reset()
   form.userName.focus()
