@@ -1,7 +1,7 @@
 const button = document.querySelector('button')
-button.addEventListener('click', handleClick)
-
-function handleClick() {
+const handleClick = function() {
   const heading = document.querySelector('#dayHeading')
   heading.textContent = 'Click!'
 }
+
+button.addEventListener('click', handleClick)
