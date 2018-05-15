@@ -2,17 +2,23 @@ const form = document.querySelector('#userForm')
 
 const handleSubmit = function(ev) {
   ev.preventDefault()
-  const users = document.querySelector('#users')
   const f = ev.target
   const userName = f.userName.value
   const age = f.age.value
   const favoriteColor = f.favoriteColor.value
 
-  const p = document.createElement('p')
-  p.textContent = `${userName}, ${age}`
-  p.style.backgroundColor = favoriteColor
+  const nameItem = document.createElement('li')
+  nameItem.textContent = `Name: ${userName}`
 
-  users.appendChild(p)
+  const ageItem = document.createElement('li')
+  ageItem.textContent = `Age: ${age}`
+
+  const list = document.createElement('ul')
+  list.appendChild(nameItem)
+  list.appendChild(ageItem)
+
+  const users = document.querySelector('#users')
+  users.appendChild(list)
 
   f.reset()
   f.userName.focus()
