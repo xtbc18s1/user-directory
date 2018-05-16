@@ -14,3 +14,16 @@ main {
   border: 1px solid #e3e3e3;
   padding: 1rem;
 }
+
+dl {
+  padding: 1rem;
+}
+
+dl li {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+dl:nth-of-type(even) {
+  background-color: WhiteSmoke;
+}
