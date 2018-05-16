@@ -20,6 +20,15 @@ function renderListItem(label, value) {
   return item
 }
 
+function renderList(data) {
+  const list = document.createElement('ul')
+  Object.keys(data).forEach(function(label) {
+    const item = renderListItem(label, data[label])
+    list.appendChild(item)
+  })
+  return list
+}
+
 const handleSubmit = function(ev) {
   ev.preventDefault()
   const form = ev.target
@@ -29,13 +38,7 @@ const handleSubmit = function(ev) {
     'Favorite Color': renderColor(form.favoriteColor.value),
   }
 
-  const list = document.createElement('ul')
-
-  Object.keys(user).forEach(function(label) {
-    const item = renderListItem(label, user[label])
-    list.appendChild(item)
-  })
-
+  const list = renderList(user)
   const users = document.querySelector('#users')
   users.appendChild(list)
 
