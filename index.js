@@ -22,14 +22,20 @@ function renderListItem(label, value) {
 const handleSubmit = function(ev) {
   ev.preventDefault()
   const f = ev.target
-  const userName = f.userName.value
-  const age = f.age.value
-  const favoriteColor = f.favoriteColor.value
+  const user = {
+    userName: f.userName.value,
+    age: f.age.value,
+    favoriteColor: renderColor(f.favoriteColor.value),
+  }
 
   const list = document.createElement('ul')
-  list.appendChild(renderListItem('Name', userName))
-  list.appendChild(renderListItem('Age', age))
-  list.appendChild(renderListItem('Favorite Color', renderColor(favoriteColor)))
+
+  const labels = Object.keys(user)
+  labels.forEach(function(label) {
+    const item = renderListItem(label, user[label])
+    list.appendChild(item)
+  })
+
 
   const users = document.querySelector('#users')
   users.appendChild(list)
