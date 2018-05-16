@@ -3,3 +3,8 @@
 body {
   font-family: 'Slabo 27px', serif;
 }
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
