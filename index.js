@@ -1,5 +1,13 @@
 const form = document.querySelector('#userForm')
 
+function renderColor(color) {
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = color
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+  return colorDiv
+}
+
 const handleSubmit = function(ev) {
   ev.preventDefault()
   const f = ev.target
@@ -13,14 +21,9 @@ const handleSubmit = function(ev) {
   const ageItem = document.createElement('li')
   ageItem.textContent = `Age: ${age}`
 
-  const colorDiv = document.createElement('div')
-  colorDiv.style.backgroundColor = favoriteColor
-  colorDiv.style.width = '6rem'
-  colorDiv.style.height = '3rem'
-
   const colorItem = document.createElement('li')
   colorItem.textContent = 'Favorite Color: '
-  colorItem.appendChild(colorDiv)
+  colorItem.appendChild(renderColor(favoriteColor))
 
   const list = document.createElement('ul')
   list.appendChild(nameItem)
